@@ -20,6 +20,8 @@ admin.add_view(ModelView(Post, db.session))
 admin.add_view(ModelView(User, db.session))
 migrate = Migrate(app, db)
 
+db.create_all()
+
 @login_manager.user_loader
 def getUser(user_id):
 	return User.query.get(int(user_id))
