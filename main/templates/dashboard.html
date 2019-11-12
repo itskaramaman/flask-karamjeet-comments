@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block content %}
+	<h1>Dashboard</h1>
+	<ul class="list-group">
+		{% for post in posts %}
+		<li class="list-group-item mb-2"> 
+			<span><b>{{ post.title }}</b></span><br>
+			<span>{{ post.content }}</span><br>
+			<div class="d-flex justify-content-between mt-2">
+				<small style="color: grey; font-family: Times New Roman">{{ post.posted_on }}</small>
+				<small style="color: grey">Karamjeet Singh</small>
+			</div>
+		</li>
+		{% endfor %}
+	</ul>
+{% endblock %}
