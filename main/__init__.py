@@ -14,10 +14,10 @@ app.config['SECRET_KEY'] = 'secret_shhh'
 db = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
-from main.models import Post, User
+from main.models import Post, User, MyModelView
 admin = Admin(app)
-admin.add_view(ModelView(Post, db.session))
-admin.add_view(ModelView(User, db.session))
+admin.add_view(MyModelView(Post, db.session))
+admin.add_view(MyModelView(User, db.session))
 migrate = Migrate(app, db)
 
 
