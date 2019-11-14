@@ -1,4 +1,5 @@
 from flask import Blueprint, request, render_template, flash, redirect, url_for
+from passlib.hash import sha256_crypt
 from main import db
 from main.forms import RegisterForm
 from main.models import User
@@ -13,10 +14,10 @@ def register():
 	if request.method == 'POST' and form.validate():
 		name = request.form['name']
 		email = request.form['email']
-		password = request.form['password']
-		user = User(name, email, password)
-		db.session.add(user)
+		password = sha256_crypt.hash(request.form['password'])
 		try:
+			user = User(name, email, password)
+			db.session.add(user)
 			db.session.commit()
 			flash('You have been successfully registered.', 'success')
 			return redirect(url_for('login_bp.login'))

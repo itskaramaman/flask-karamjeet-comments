@@ -8,7 +8,7 @@
 			<span>{{ post.content }}</span><br>
 			<div class="d-flex justify-content-between mt-2">
 				<small style="color: grey; font-family: Times New Roman">{{ post.posted_on }}</small>
-				<small style="color: grey">{{ post.user.name }}</small>
+				<small style="color: grey">{{ post.user.name | title }}</small>
 			</div>
 		</li>
 		{% endfor %}
