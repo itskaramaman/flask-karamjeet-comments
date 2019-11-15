@@ -29,8 +29,6 @@ def getUser(user_id):
 def unauthorized():
     return render_template('login_required.html')
 
-db.create_all()
-
 from main.views import dashboard_bp, post_bp, register_bp, login_bp, logout_bp, profile_bp
 app.register_blueprint(dashboard_bp)
 app.register_blueprint(post_bp)
