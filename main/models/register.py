@@ -7,7 +7,7 @@ class User(UserMixin, db.Model):
 	name = db.Column(db.String(255), nullable=False)
 	email = db.Column(db.String(255), nullable=False, unique=True)
 	password = db.Column(db.String(255), nullable=False)
-	is_admin = db.Column(db.Boolean, default=False)
+# 	is_admin = db.Column(db.Boolean, default=False)
 	posts =  db.relationship('Post', backref='user', lazy=True)
 
 	def __init__(self, name, email, password):
