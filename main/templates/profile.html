@@ -5,7 +5,7 @@
 		<p>{{ author.email }}</p>
 		<hr>
 		<h3>Posts</h3>
-		{% if author.posts|length > 1 %}
+		{% if author.posts|length > 0 %}
 		<ul class="list-group">
 			{% for post in author.posts %}
 				<li class="list-group-item mb-2">
