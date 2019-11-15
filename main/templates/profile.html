@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+{% block content %}
+	<div class="container border py-4 px-5">
+		<h2>{{ author.name | title }}</h2>
+		<p>{{ author.email }}</p>
+		<hr>
+		<h3>Posts</h3>
+		<ul class="list-group">
+			{% for post in author.posts %}
+				<li class="list-group-item mb-2">
+					<p><b>{{ post.title }}</b></p>
+					<p>{{ post.content }}</p>
+					<p class="float-right">{{ post.posted_on }}</p>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+{% endblock %}
