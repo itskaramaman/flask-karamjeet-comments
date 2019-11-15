@@ -9,5 +9,5 @@ profile_bp = Blueprint('profile_bp', __name__)
 @login_required
 def profile():
 	"""Author profile page."""
-	author = User.query.join(Post).filter_by(author_id=current_user.id).first()
+	author = User.query.get(current_user.id)
 	return render_template('profile.html', author=author)
